@@ -1,0 +1,175 @@
+body {
+
+  background: #f5f7fb;
+
+}
+
+.add-container {
+
+  max-width: 780px;
+
+  margin: 40px auto;
+
+  background: #ffffff;
+
+  padding: 35px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+  border: 1px solid #e5e7eb;
+
+}
+
+.add-container h2 {
+
+  text-align: center;
+
+  margin-bottom: 30px;
+
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: #111827;
+
+}
+
+.add-container form {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+
+}
+
+.add-container input,
+
+.add-container select,
+
+.add-container textarea {
+
+  width: 100%;
+
+  padding: 14px 16px;
+
+  font-size: 15px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 12px;
+
+  background: #f9fafb;
+
+  transition: all 0.3s ease;
+
+  box-sizing: border-box;
+
+}
+
+.add-container input:focus,
+
+.add-container select:focus,
+
+.add-container textarea:focus {
+
+  outline: none;
+
+  border-color: #2563eb;
+
+  background: #ffffff;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+
+}
+
+.add-container textarea {
+
+  resize: vertical;
+
+  min-height: 110px;
+
+  grid-column: span 2;
+
+}
+
+.add-container input[name="receipt"] {
+
+  grid-column: span 2;
+
+}
+
+.add-container button {
+
+  grid-column: span 2;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+}
+
+.add-container button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+
+}
+
+.add-container button:active {
+
+  transform: scale(0.98);
+
+}
+
+@media (max-width: 768px) {
+
+  .add-container {
+
+    margin: 20px;
+
+    padding: 25px;
+
+  }
+
+  .add-container h2 {
+
+    font-size: 1.6rem;
+
+  }
+
+  .add-container form {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .add-container textarea,
+
+  .add-container input[name="receipt"],
+
+  .add-container button {
+
+    grid-column: span 1;
+
+  }
+
+}

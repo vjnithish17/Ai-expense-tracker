@@ -1,0 +1,127 @@
+.dashboard{
+    padding:30px;
+    background:#f8fafc;
+    /* min-height:100vh; */
+}
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:30px;
+}
+
+.card{
+    padding:30px;
+    border-radius:15px;
+    color:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.balance{
+    background:#2563eb;
+}
+
+.income{
+    background:#16a34a;
+}
+
+.expense{
+    background:#dc2626;
+}
+
+.savings{
+    background:#9333ea;
+}
+
+.recent{
+    margin-top:10px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+
+    background:#0f172a;
+    color:white;
+    padding:15px;
+}
+
+td{
+
+    padding:15px;
+    border-bottom:1px solid #ddd;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Laptop */
+@media (max-width: 1200px){
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px){
+
+    .dashboard{
+        padding:20px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    table{
+        min-width:700px;
+    }
+    .table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+}
+
+/* Mobile */
+@media (max-width: 480px){
+
+    .dashboard h1{
+        font-size:24px;
+    }
+
+    .card h2{
+        font-size:26px;
+    }
+
+    .card h3{
+        font-size:16px;
+    }
+
+    th,
+    td{
+        padding:10px;
+        font-size:14px;
+    }
+    .table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+}

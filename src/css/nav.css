@@ -1,0 +1,117 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 50px;
+    background:#0f172a;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+    align-items:center;
+}
+
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#38bdf8;
+}
+
+.nav-links a.active{
+    color:#22c55e;
+}
+
+/* Hamburger Icon */
+
+.menu-icon{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+/* Tablet */
+
+@media (max-width:768px){
+
+    .navbar{
+        padding:18px 20px;
+    }
+
+    .menu-icon{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#0f172a;
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        padding:20px 0;
+        display:none;
+        box-shadow:0 8px 15px rgba(0,0,0,.2);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+        text-align:center;
+    }
+
+    .nav-links a{
+        display:block;
+        width:100%;
+        padding:10px 0;
+    }
+}
+
+/* Mobile */
+
+@media (max-width:480px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .menu-icon{
+        font-size:24px;
+    }
+
+    .nav-links{
+        top:65px;
+    }
+}
