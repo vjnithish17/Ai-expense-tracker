@@ -7,7 +7,7 @@ function TransactionDetails({ transactions }) {
   const { id } = useParams();
 
   const transaction = transactions.find(
-    (item) => item.id == id
+    (item) => item.id === id
   );
 
   if (!transaction) {
