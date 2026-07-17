@@ -10,7 +10,7 @@
     justify-content:space-between;
     align-items:center;
     padding:18px 50px;
-    background:#0f172a;
+    background:#188794;
     position:sticky;
     top:0;
     z-index:1000;
@@ -46,6 +46,28 @@
 
 .nav-links a.active{
     color:#22c55e;
+}
+.user{
+    font-weight: 700;
+     background: linear-gradient(
+    90deg,
+    #00e5ff,
+    #ffffff,
+    #00e5ff,
+    #ffffff,
+    #00e5ff
+  );
+
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 /* Hamburger Icon */

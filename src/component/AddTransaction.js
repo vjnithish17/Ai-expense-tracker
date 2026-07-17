@@ -6,6 +6,8 @@ import "../css/addtransaction.css";
 function AddTransaction({ fetchtransactions }) {
    const navigate = useNavigate();
 
+   const currentAdmin = localStorage.getItem("admin");
+
   const [transaction, setTransaction] = useState({
     title: "",
     amount: "",
@@ -15,6 +17,7 @@ function AddTransaction({ fetchtransactions }) {
     payment: "UPI",
     notes: "",
     receipt: "",
+    owner:currentAdmin
   });
 
   const handleChange = (e) => {
@@ -40,17 +43,19 @@ function AddTransaction({ fetchtransactions }) {
     }
 
     try {
-      await api.post("/transactions", transaction);
-
+      const newTransaction = {
+      ...transaction,
+      owner: currentAdmin,
+    };
+      await api.post("/transactions", newTransaction);
       fetchtransactions();
-
       alert("Transaction Added Successfully");
-
       navigate("/transactions");
     } catch (err) {
       console.log(err);
     }
   };
+
 
   return (
     <div className="add-container">

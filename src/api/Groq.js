@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_GROQ_API_KEY;
 
-console.log("KEY:", API_KEY);
+// console.log("KEY:", API_KEY);
 
 export const generateReport = async (transactions) => {
 

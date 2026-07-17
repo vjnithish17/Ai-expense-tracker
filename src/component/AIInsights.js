@@ -16,6 +16,8 @@ function AIInsights({ transactions }) {
 
       } catch (error) {
         setReport("Groq AI Error");
+         console.log(error.response?.data);
+  setReport("Groq AI Error: " + (error.response?.data?.error?.message || error.message));
       } finally {
         setLoading(false);
       }

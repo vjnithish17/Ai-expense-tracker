@@ -1,0 +1,78 @@
+/* ------------------ Login page ------------------------------- */
+
+.login-container {
+  height: 100vh;
+  background-image: url(https://www.internationalaccountingbulletin.com/wp-content/uploads/sites/9/2022/06/shutterstock_527098861-1-scaled.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:default;
+}
+
+.login-card {
+  height: 350px;
+  width: 350px;
+  background:linear-gradient(115deg,#76bdcf91,#ffffffc7) ;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px #00000071;
+}
+
+.login-card h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2a4c69;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background: #ffffffb4;
+}
+
+.login-card input:focus {
+  border: 1px solid blue;
+  outline: none;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: royalblue;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.login-card button:hover {
+  background: #1d4ed8;
+}
+
+span {
+  color: red;
+  height: 10px;
+}
+
+.logout-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: #e60000;
+}

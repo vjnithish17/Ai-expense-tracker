@@ -1,14 +1,34 @@
-import { useParams, Link } from "react-router-dom";
-
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "../css/transactionsdetail.css";
+import { useEffect, useState } from "react";
+import api from "../api/api";
 
 function TransactionDetails({ transactions }) {
 
   const { id } = useParams();
+  const [transaction, setTransaction] = useState(null);
+  const navigate=useNavigate()
 
-  const transaction = transactions.find(
-    (item) => item.id === id
-  );
+  useEffect(() => {
+    const fetchTransaction = async () => {
+      try {
+        const response = await api.get(`/transactions/${id}`);
+        const currentAdmin = localStorage.getItem("admin");
+
+        // Security check
+        if (response.data.owner !== currentAdmin) {
+          alert("Unauthorized access");
+          navigate("/transactions");
+          return;
+        }
+        setTransaction(response.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+
+    fetchTransaction();
+  }, [id, navigate]);
 
   if (!transaction) {
     return <h2>Transaction Not Found</h2>;

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../css/nav.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
@@ -6,11 +6,23 @@ import { useState } from "react";
 function Navbar() {
 
     const [menuOpen, setMenuOpen] = useState(false);
+      const navigate = useNavigate();
+
+       const Admin = localStorage.getItem("admin");
+
+  // Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("islogin");
+    localStorage.removeItem("admin");
+    alert("Logged out successfully");
+    navigate("/");
+  };
+
   return (
     <nav className="navbar">
 
       <div className="logo">
-        💰 AI Expense Tracker
+         AI Expense Tracker
       </div>
          <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
                 {menuOpen ? <FaTimes /> : <FaBars />}
@@ -18,7 +30,7 @@ function Navbar() {
 
       <ul className={menuOpen ?"nav-links active":"nav-links" } >
         <li>
-          <NavLink to="/">Dashboard</NavLink>
+          <NavLink to="/Dashboard">Dashboard</NavLink>
         </li>
 
         <li>
@@ -35,6 +47,15 @@ function Navbar() {
 
         <li>
           <NavLink to="/ai">AI Insights</NavLink>
+        </li>
+        <li className="user">
+          {Admin}
+        </li>
+
+         <li>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </li>
 
         {/* <li>

@@ -1,41 +1,48 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./component/Navbar";
 import Dashboard from "./component/Dashboard";
 import TransactionList from "./component/TransactionList";
 import AddTransaction from "./component/AddTransaction";
 import EditTransaction from "./component/EditTransaction";
-import TransactionDetails from "./component/TransactionDetails";
+// import TransactionDetails from "./component/TransactionDetails";
 import Analytics from "./component/Analytics";
 import AIInsights from "./component/AIInsights";
+import Login from "./component/Login";
 // import ChatAssistant from "./component/ChatAssistant";
 import NotFound from "./component/NotFound";
 import { useEffect, useState } from "react";
 import api from "./api/api";
 
+import { Navigate  } from 'react-router-dom'
+
 function App() {
   const [transactions, setTransactions] = useState([]);
-
+ const location = useLocation();
   useEffect(() => {
     fetchtransactions();
   }, []);
 
   const fetchtransactions = async () => {
     try {
-      const response = await api.get("/transactions");
+       const currentAdmin = localStorage.getItem("admin");
+      const response = await api.get(`/transactions?owner=${currentAdmin}`);
       setTransactions(response.data);
     } catch (err) {
       console.log(err.message);
     }
   };
+
+   const islogin = localStorage.getItem("islogin");
+
   return (
     <>
-      <Navbar />
+      {location.pathname !== "/" && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Dashboard transactions={transactions} />} />
-
+        <Route path="/Dashboard" element={islogin === "true" ? <Dashboard transactions={transactions} /> :<Navigate to="/"/> } />
+          <Route path="/" element={<Login/>}/>
         <Route
           path="/transactions"
           element={
@@ -69,10 +76,10 @@ function App() {
           }
         />
 
-        <Route
+        {/* <Route
           path="/transactions/:id"
           element={<TransactionDetails transactions={transactions} />}
-        />
+        /> */}
 
         <Route
           path="/analytics"

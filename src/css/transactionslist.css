@@ -1,236 +1,143 @@
 body {
-
   background: #f5f7fb;
-
 }
 
 .list-container {
-
   padding: 30px;
-
 }
 
 .list-container h2 {
-
   font-size: 2rem;
-
   font-weight: 700;
-
   color: #111827;
-
   margin-bottom: 25px;
-
 }
 
 .filters {
-
   display: flex;
-
   gap: 15px;
-
   margin-bottom: 25px;
-
   flex-wrap: wrap;
-
 }
 
 .filters input,
-
 .filters select {
-
   padding: 12px 14px;
-
   border: 1px solid #d1d5db;
-
   border-radius: 10px;
-
   background: white;
-
   font-size: 15px;
-
   min-width: 180px;
-
   transition: all 0.3s ease;
-
 }
 
 .filters input {
-
   flex: 1;
-
   min-width: 250px;
-
 }
 
 .filters input:focus,
-
 .filters select:focus {
-
   outline: none;
-
   border-color: #2563eb;
-
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 
 }
 
 table {
-
   width: 100%;
-
   border-collapse: collapse;
-
   background: white;
-
   border-radius: 14px;
-
   overflow: hidden;
-
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-
 }
 
 th {
 
-  background: #111827;
-
+  background: #188794;
   color: white;
-
   padding: 16px;
-
   font-size: 15px;
-
   font-weight: 600;
-
+ text-align: center;
 }
 
 td {
-
   padding: 15px;
-
   border-bottom: 1px solid #f1f5f9;
-
   text-align: center;
-
   color: #374151;
-
 }
 
 tr:hover {
-
   background: #f8fafc;
-
 }
 
 .actions {
-
   display: flex;
-
   justify-content: center;
-
   gap: 8px;
-
   flex-wrap: wrap;
-
 }
 
 .view-btn,
-
 .edit-btn,
-
 .delete-btn {
-
   padding: 8px 14px;
-
   border: none;
-
   border-radius: 8px;
-
   color: white;
-
   text-decoration: none;
-
   font-size: 14px;
-
   font-weight: 600;
-
   cursor: pointer;
-
   transition: 0.3s ease;
-
 }
 
 .view-btn {
-
   background: #2563eb;
-
 }
 
 .view-btn:hover {
-
   background: #1d4ed8;
-
 }
 
 .edit-btn {
-
   background: #16a34a;
-
 }
 
 .edit-btn:hover {
-
   background: #15803d;
-
 }
 
 .delete-btn {
-
   background: #dc2626;
-
 }
 
 .delete-btn:hover {
-
   background: #b91c1c;
-
 }
 
 .not {
-
   text-align: center;
-
   font-size: 18px;
-
   font-weight: 600;
-
   color: #6b7280;
-
   padding: 30px;
-
 }
 .table-wrapper {
-
   width: 100%;
-
   overflow-x: auto;
-
   border-radius: 14px;
-
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-
 }
 
 table {
-
   width: 100%;
-
   min-width: 750px;
-
   border-collapse: collapse;
-
   background: white;
-
 }
 
 @media (max-width: 768px) {

@@ -18,16 +18,27 @@ function EditTransaction({ transactions, fetchtransactions }) {
     receipt: "",
   });
 
-  useEffect(() => {
 
-    const existing = transactions.find(
-      (item) => item.id === id
-    );
+ useEffect(() => {
+    const fetchTransaction = async () => {
+      try {
+        const response = await api.get(`/transactions/${id}`);
+        const currentAdmin = localStorage.getItem("admin");
 
-    if (existing) {
-      setTransaction(existing);
-    }
-  }, [id, transactions]);
+        if (response.data.owner !== currentAdmin) {
+          alert("Unauthorized access");
+          navigate("/transactions");
+          return;
+        }
+
+        setTransaction(response.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+
+    fetchTransaction();
+  }, [id, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,10 +51,16 @@ function EditTransaction({ transactions, fetchtransactions }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await api.put(`/transactions/${id}`, transaction);
-    fetchtransactions();
-    navigate("/transactions");
+    try {
+      await api.put(`/transactions/${id}`, transaction);
+      fetchtransactions();
+      alert("Transaction Updated Successfully");
+      navigate("/transactions");
+    } catch (err) {
+      console.log(err.message);
+    }
   };
+
 
   return (
 
