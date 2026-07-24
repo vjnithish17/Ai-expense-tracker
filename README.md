@@ -55,5 +55,10 @@ npm start
 
 **Nithyasundharam E**
 
-- GitHub: https://github.com/vjnithish17
-- Portfolio: https://nithish-plum.vercel.app
+-  Portfolio: https://nithish-plum.vercel.app/
+-  GitHub: https://github.com/vjnithish17
+-  LinkedIn:https://www.linkedin.com/in/nithish-e-27b2822a5/
+-  Email:vjnithish17@gmail.com
+---
+
+  If you found this project useful, consider giving it a **Star** on GitHub.
