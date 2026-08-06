@@ -12,21 +12,22 @@ import AIInsights from "./component/AIInsights";
 import Login from "./component/Login";
 // import ChatAssistant from "./component/ChatAssistant";
 import NotFound from "./component/NotFound";
+import Register from "./component/Register";
 import { useEffect, useState } from "react";
 import api from "./api/api";
 
-import { Navigate  } from 'react-router-dom'
+import { Navigate } from "react-router-dom";
 
 function App() {
   const [transactions, setTransactions] = useState([]);
- const location = useLocation();
+  const location = useLocation();
   useEffect(() => {
     fetchtransactions();
   }, []);
 
   const fetchtransactions = async () => {
     try {
-       const currentAdmin = localStorage.getItem("admin");
+      const currentAdmin = localStorage.getItem("admin");
       const response = await api.get(`/transactions?owner=${currentAdmin}`);
       setTransactions(response.data);
     } catch (err) {
@@ -34,67 +35,96 @@ function App() {
     }
   };
 
-   const islogin = localStorage.getItem("islogin");
+  const islogin = localStorage.getItem("islogin");
 
   return (
     <>
-      {location.pathname !== "/" && <Navbar />}
-
+      {location.pathname !== "/" && location.pathname !== "/register" && (
+          <Navbar />
+        )}
       <Routes>
-        <Route path="/Dashboard" element={islogin === "true" ? <Dashboard transactions={transactions} /> :<Navigate to="/"/> } />
-          <Route path="/" element={<Login/>}/>
+
+        <Route path="/" element={<Login />} />
+
+        <Route path="/register" element={<Register />} />
+
+        <Route
+          path="/Dashboard"
+          element={
+            islogin === "true" ? (
+              <Dashboard transactions={transactions} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+
         <Route
           path="/transactions"
           element={
-            <TransactionList
-              transactions={transactions}
-              setTransactions={setTransactions}
-              fetchtransactions={fetchtransactions}
-            />
+            islogin === "true" ? (
+              <TransactionList
+                transactions={transactions}
+                setTransactions={setTransactions}
+                fetchtransactions={fetchtransactions}
+              />
+            ) : (
+              <Navigate to="/" />
+            )
           }
         />
 
         <Route
           path="/add"
           element={
-            <AddTransaction
-              transactions={transactions}
-              setTransactions={setTransactions}
-              fetchtransactions={fetchtransactions}
-            />
+            islogin === "true" ? (
+              <AddTransaction
+                transactions={transactions}
+                setTransactions={setTransactions}
+                fetchtransactions={fetchtransactions}
+              />
+            ) : (
+              <Navigate to="/" />
+            )
           }
         />
 
         <Route
           path="/edit/:id"
           element={
-            <EditTransaction
-              transactions={transactions}
-              setTransactions={setTransactions}
-              fetchtransactions={fetchtransactions}
-            />
+            islogin === "true" ? (
+              <EditTransaction
+                transactions={transactions}
+                setTransactions={setTransactions}
+                fetchtransactions={fetchtransactions}
+              />
+            ) : (
+              <Navigate to="/" />
+            )
           }
         />
 
-        {/* <Route
-          path="/transactions/:id"
-          element={<TransactionDetails transactions={transactions} />}
-        /> */}
-
         <Route
           path="/analytics"
-          element={<Analytics transactions={transactions} />}
+          element={
+            islogin === "true" ? (
+              <Analytics transactions={transactions} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
 
         <Route
           path="/ai"
-          element={<AIInsights transactions={transactions} />}
+          element={
+            islogin === "true" ? (
+              <AIInsights transactions={transactions} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
-
-        {/* <Route
-          path="/chat"
-          element={<ChatAssistant transactions={transactions} />}
-        /> */}
 
         <Route path="*" element={<NotFound />} />
       </Routes>

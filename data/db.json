@@ -1,27 +1,4 @@
 {
-  "transactions": [
-    {
-      "title": "Nithish",
-      "amount": "1000",
-      "type": "Income",
-      "category": "t-shirt",
-      "date": "2026-07-08",
-      "payment": "UPI",
-      "notes": "",
-      "receipt": "",
-      "id": "sog7LbFKCyA"
-    },
-    {
-      "title": "gokul",
-      "amount": "19000",
-      "type": "Income",
-      "category": "Shopping",
-      "date": "2026-07-13",
-      "payment": "Cash",
-      "notes": "trichy",
-      "receipt": "",
-      "id": "Kz10UmPoIRw"
-    }
-  ],
+  "transactions": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
