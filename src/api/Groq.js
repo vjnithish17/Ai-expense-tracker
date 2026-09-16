@@ -5,7 +5,6 @@ const API_KEY = process.env.REACT_APP_GROQ_API_KEY;
 // console.log("KEY:", API_KEY);
 
 export const generateReport = async (transactions) => {
-
   const summary = transactions.map((t) => ({
     title: t.title,
     amount: t.amount,
@@ -16,7 +15,7 @@ export const generateReport = async (transactions) => {
   const response = await axios.post(
     "https://api.groq.com/openai/v1/chat/completions",
     {
-      model: "llama-3.1-8b-instant",
+      model: "openai/gpt-oss-20b",
       messages: [
         {
           role: "user",
